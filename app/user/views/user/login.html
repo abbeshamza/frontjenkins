@@ -1,0 +1,36 @@
+
+<br><br><br><br>
+<div flex-offset="30" flex="30" layout="row"  layout-align="center center" ng-init="loadingSpinner =false">
+    <div   class="container md-whiteframe-3dp layout-margin" >
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <div id='loading-bar-container' ng-show= "loadingSpinner == true">
+
+        </div>
+        <div ng-show= "loadingSpinner == false">
+        <form class="form-signin" >
+            <div>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Username </label>
+                    <input ng-model="user.username" name="username" required  md-minlength="3">
+                </md-input-container>
+            </div>
+            <div>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Password </label>
+                    <input ng-model="user.password" name="password" type="password" required  md-minlength="3">
+                </md-input-container>
+            </div>
+            <div>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <md-button ng-click="login.login(user)" class="md-primary md-raised"
+                               ng-disabled="projectForm.$invalid">
+                        login
+                    </md-button>
+                </md-input-container>
+            </div>
+        </form>
+        </div>
+    </div> <!-- /container -->
+   <!-- <div>login/passworf<br> hamza/azerty</div>-->
+
+</div>

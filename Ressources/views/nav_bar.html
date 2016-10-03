@@ -1,0 +1,24 @@
+   <md-toolbar >
+    <div class="md-toolbar-tools"  flex = "100" layout="row" >
+        <div flex="30" layout-align="left"  layout="row">
+        <md-button  aria-label="open left menu "class="md-icon-button" ng-click="openLeftMenu()" ng-show="false" >
+            <md-icon md-svg-icon="menu"></md-icon>
+        </md-button>
+                <h2>
+                    <span> Dashboard</span>
+                </h2>
+        </div>
+        <div layout="column" flex="70" layout-align="end right">
+        <h2 ng-if="nameOfProject != null">Project : {{nameOfProject}}  </h2>
+        <h2 ng-if="nameOfBuild != null">Build : {{nameOfBuild}}</h2>
+        </div>
+        <div layout-align="end right"  ng-controller="user:loginController as securityCtr">
+                <md-fab-actions >
+                    <md-button aria-label="Logout " ng-click="securityCtr.logout()" class="md-fab md-raised md-mini">
+                        <md-icon md-svg-icon="logout"></md-icon>
+                        <md-tooltip md-direction="left">Logout</md-tooltip>
+                    </md-button>
+                </md-fab-actions>
+        </div>
+    </div>
+</md-toolbar>

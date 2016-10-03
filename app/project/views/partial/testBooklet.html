@@ -1,0 +1,21 @@
+
+<md-content>
+    <md-card ng-repeat="testBooklet in selectedProject.allTestBooklet  ">
+        <md-card-content>
+
+          <h5>{{testBooklet.name}}</h5>
+            <md-checkbox ng-model="isChecked" aria-label="show?">
+                show Test Cases
+            </md-checkbox>
+            <div ng-show="isChecked">
+                <ul>
+                    <li ng-repeat="test in testBooklet.allTestCases ">
+                        {{test.name}}
+                    </li>
+                </ul>
+            </div>
+        </md-card-content>
+        <md-card-action layout="row" layout-align="end center">
+        </md-card-action>
+    </md-card>
+</md-content>

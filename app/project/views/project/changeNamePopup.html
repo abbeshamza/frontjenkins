@@ -1,0 +1,26 @@
+<md-dialog>
+    <form name="projectForm" ng-submit="project.updateName()" >
+        <md-dialog-content>
+            <div layout="column" layout-padding>
+                <div layout-gt-sm="row">
+                    <input ng-model="id" name="id" hidden>
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Name Project </label>
+                        <input ng-model="project.name" name="name" required  md-minlength="3">
+                        <div ng-messages="projectForm.name.$error">
+                            <div ng-message="required">This is rquired</div>
+                            <div ng-message="minlength">That's too short!</div>
+                        </div>
+                    </md-input-container>
+                </div>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+
+            <md-button type="submit" class="md-primary md-raised"
+                       ng-disabled="projectForm.$invalid">
+                save
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

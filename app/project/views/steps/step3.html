@@ -1,0 +1,41 @@
+<div flex="100" layout="row"  >
+    <div flex="30" ng-controller="project:menuController as menuCtr" ng-include ="'app/project/views/side_menu.html'" ></div>
+    <md-divider><div flex="10"></div> </md-divider>
+    <div class="layout-column" flex = "100">
+        <div ng-include ="'Ressources/views/nav_bar.html'" ></div>
+        <div flex><h1>Create a new Build for Project {{}}</h1> </div>
+        <div flex-auto layout="column" layout-padding>
+
+            <div id='loading-bar-container' ng-show= "loadingSpinner == true">
+
+            </div>
+            <md-content ng-show= "loadingSpinner == false" layout="column" flex="100" >
+                <form name="BuildForm" ng-model="buildForm"ng-submit="build.saveBuild()">
+                    <input type="hidden" name="project" value="">
+
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Name Build </label>
+                        <input ng-model="newBuild.name" name="name" required  md-minlength="3">
+                        <div ng-messages="buildForm.name.$error">
+                            <div ng-message="required">This is rquired</div>
+                            <div ng-message="minlength">That's too short!</div>
+                        </div>
+                    </md-input-container>
+
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Build description</label>
+                            <textarea ng-model="newBuild.description" name="description" required md-maxlength="150"></textarea>
+                            <div ng-messages="buildForm.description.$error">
+                                <div ng-message="required">This is rquired</div>
+                            </div>
+                        </md-input-container>
+                    <div  layout-align="end center">
+                        <md-button class="md-primary md-raised" type="submit"  ng-disabled="buildForm.$invalid">
+                            next
+                        </md-button>
+                    </div>
+                </form>
+            </md-content>
+        </div>
+    </div>
+</div>

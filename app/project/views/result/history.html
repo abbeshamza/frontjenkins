@@ -1,0 +1,41 @@
+<div flex="100" layout="row" ng-controller="result.getResult">
+    <div flex="30" ng-controller="project:menuController as menuCtr" ng-include ="'app/project/views/side_menu.html'" ></div>
+    <md-divider><div flex="5"></div> </md-divider>
+    <div class="layout-column" flex = "100">
+        <div ng-include ="'Ressources/views/nav_bar.html'" ></div>
+        <md-content >
+<h1>History of runned Test Companies  :</h1>
+                <md-divider></md-divider>
+            <div id='loading-bar-container' ng-show= "loadingSpinner == true">
+            </div>
+            <h3>Evolution of the testCompany</h3>
+            <div  ng-show= "loadingSpinner == false">
+                    <div ac-chart="'line'" ac-data="data" ac-config="config" id='chart' class='chart'></div>
+                </div>
+            </md-content >
+        <div>
+            <h3>History of execution</h3>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Date</th>
+                    <th>Assertion</th>
+                    <th>Failure</th>
+                    <th>Time</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr  ng-repeat="result in results">
+                    <td>#</td>
+                    <td><a>{{result.date | date}}</a></td>
+                    <td>{{result.assertion}}</td>
+                    <td>{{result.failure}}</td>
+                    <td>{{result.time}}</td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+<div flex="100" layout="row"  ng-controller="project.updateProject"  >
+    <div flex="30" ng-controller="project:menuController as menuCtr" ng-include ="'app/project/views/side_menu.html'" ></div>
+    <md-divider><div flex="10"></div> </md-divider>
+    <div class="layout-column" flex = "100">
+        <div ng-include ="'Ressources/views/nav_bar.html'" ></div>
+        <div flex-offset="40"><h1>Update project {{projectToUpdate.name}}</h1> </div>
+        <div id='loading-bar-container' ng-show= "loadingSpinner == true">
+
+        </div>
+
+        <div  ng-show= "loadingSpinner == false" flex-auto layout="column" layout-padding >
+            <form name="projectForm" ng-model="projectForm" enctype="multipart/form-data" ng-submit="project.saveUpdates()" >
+                <div layout-gt-sm="row">
+                    <input type="text" hidden name="idproject" ng-model="projectToUpdate.idproject">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Name Project </label>
+                        <input id="name" ng-model="projectToUpdate.name" name="name" ng-required="true"  md-minlength="3">
+                        <div ng-messages="projectForm.name.$error" ng-if="projectForm.name.$touched">
+                            <div ng-message="required">This is rquired</div>
+                            <div ng-message="minlength">That's too short!</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Project URL</label>
+                        <input ng-model="projectToUpdate.url" name="url" ng-required="true"  md-minlength="3">
+                        <div ng-messages="projectForm.url.$error">
+                            <div ng-message="required">This is required</div>
+                            <div ng-message="minlength">That's too short!</div>
+                        </div>
+                    </md-input-container>
+                </div>
+                <div>
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Project description</label>
+                        <textarea ng-model="projectToUpdate.description" name="description" required md-maxlength="150"></textarea>
+                        <div ng-messages="projectForm.description.$error">
+                            <div ng-message="required">This is rquired</div>
+                        </div>
+                    </md-input-container>
+                </div>
+                <div>
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Project folder (zip file) </label><br><br>
+                        <input type='file' name="file"  file-model='projectToUpdate.file'>
+                    </md-input-container>
+                </div>
+                <md-button type="submit" class="md-primary md-raised"
+                           ng-disabled="projectForm.$invalid" >
+                    Update
+                </md-button>
+            </form>
+            <md-content flex>
+
+            </md-content>
+        </>
+    </div>
+</div>

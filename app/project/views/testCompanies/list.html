@@ -1,0 +1,11 @@
+<div flex="100" layout="row" ng-controller="companies.showTestCompany">
+    <div flex="100" layout="row" >
+        <div flex="30" ng-controller="project:menuController as menuCtr" ng-include ="'app/project/views/side_menu.html'" ></div>
+        <md-divider><div flex="10"></div> </md-divider>
+        <div class="layout-column" flex = "100">
+            <div ng-include ="'Ressources/views/nav_bar.html'" ></div>
+            <div flex><h1>List of  Test Companies </h1> </div>
+        </div>
+
+    </div>
+</div>

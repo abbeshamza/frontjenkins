@@ -1,0 +1,184 @@
+html, body{
+    font-family: 'Roboto',sans-serif;
+    font-size: 14px;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+md-toolbar h1 {
+    font-size: 1.250em;
+    font-weight: 400;
+    margin: auto;
+
+}
+.scrollable-nav-content {
+    position:relative;
+    top :0px;
+    margin-right: 10px;
+    width: 100%;
+    overflow: auto;
+}
+.chipsdemoContactChips md-content.autocomplete {
+    min-height: 250px; }
+.chipsdemoContactChips md-content.autocomplete input {
+    min-width: 400px; }
+
+.chipsdemoContactChips .md-item-text.compact {
+    padding-top: 8px;
+    padding-bottom: 8px; }
+
+.chipsdemoContactChips .contact-item {
+    box-sizing: border-box; }
+.chipsdemoContactChips .contact-item.selected {
+    opacity: 0.5; }
+.chipsdemoContactChips .contact-item.selected h3 {
+    opacity: 0.5; }
+.chipsdemoContactChips .contact-item .md-list-item-text {
+    padding: 14px 0;
+    max-width: 190px; }
+.chipsdemoContactChips .contact-item .md-list-item-text h3 {
+    margin: 0 !important;
+    padding: 0;
+    line-height: 1.2em !important; }
+.chipsdemoContactChips .contact-item .md-list-item-text h3, .chipsdemoContactChips .contact-item .md-list-item-text p {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden; }
+@media (min-width: 960px) {
+    .chipsdemoContactChips .contact-item {
+        float: left;
+        width: 33%; } }
+
+.chipsdemoContactChips md-contact-chips {
+    margin-bottom: 10px; }
+
+.chipsdemoContactChips .md-chips {
+    padding: 5px 0 8px; }
+
+.chipsdemoContactChips .fixedRows {
+    height: 250px;
+    overflow: hidden; }
+
+.progressLineardemoBasicUsage body {
+    padding: 20px; }
+
+.progressLineardemoBasicUsage h4 {
+    margin: 10px 0; }
+
+.progressLineardemoBasicUsage md-progress-linear {
+    padding-top: 10px;
+    margin-bottom: 20px; }
+
+.progressLineardemoBasicUsage #loaders > md-switch {
+    margin: 0;
+    margin-left: 10px;
+    margin-top: -10px; }
+
+.progressLineardemoBasicUsage #loaders > h5 {
+    margin-top: 0; }
+
+.progressLineardemoBasicUsage #loaders > p {
+    margin-right: 20px;
+    margin-bottom: 24px; }
+
+.progressLineardemoBasicUsage p.small {
+    font-size: 0.8em;
+    margin-top: -18px; }
+
+.progressLineardemoBasicUsage hr {
+    width: 100%;
+    margin-top: 20px;
+    border-color: rgba(221, 221, 177, 0.1); }
+
+.progressLineardemoBasicUsage p.small > code {
+    font-size: 0.8em; }
+
+.progressLineardemoBasicUsage .visible {
+    opacity: 0;
+    border: 2px solid white !important; }
+
+.progressLineardemoBasicUsage .container {
+    display: block;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    border: 2px solid #aad1f9;
+    transition: opacity  0.1s linear;
+    border-top: 0px; }
+
+.progressLineardemoBasicUsage .bottom-block {
+    display: block;
+    position: relative;
+    background-color: rgba(255, 235, 169, 0.25);
+    height: 85px;
+    width: 100%; }
+
+.progressLineardemoBasicUsage .bottom-block > span {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 25px;
+    font-size: 0.9em; }
+
+.chart{
+    width: 100%;
+    height: 300px;
+}
+
+#loading-bar .bar {
+    background-color: rgba(49, 37, 37, 0.2);
+    border-radius: 6px;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    background-color: rgba(0,0,0,0.3);
+    content: '';
+    display: block;
+    position: fixed;
+
+}
+#loading-bar-spinner .spinner-icon {
+    border-top-color:  #2c3e50;
+    border-left-color: #2c3e50;
+    top: 50%;
+    left: 50%;
+}
+#loading-bar .peg {
+    -moz-box-shadow: #2c3e50 1px 0 6px 1px;
+    -ms-box-shadow: #2c3e50 1px 0 6px 1px;
+    -webkit-box-shadow: #2c3e50 1px 0 6px 1px;
+    box-shadow: #2c3e50 1px 0 6px 1px;
+}
+.fabSpeedDialdemoBasicUsage .text-capitalize {
+    text-transform: capitalize; }
+
+.fabSpeedDialdemoBasicUsage .md-fab:hover, .fabSpeedDialdemoBasicUsage .md-fab.md-focused {
+    background-color: #000 !important; }
+
+.fabSpeedDialdemoBasicUsage p.note {
+    font-size: 1.2rem; }
+
+.fabSpeedDialdemoBasicUsage .lock-size {
+    min-width: 300px;
+    min-height: 300px;
+    width: 300px;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto; }
+
+.fabSpeedDialdemoBasicUsage .text-capitalize {
+    text-transform: capitalize; }
+.fabSpeedDialdemoBasicUsage .md-fab:hover, .fabSpeedDialdemoBasicUsage .md-fab.md-focused {
+    background-color: #000 !important; }
+.fabSpeedDialdemoBasicUsage p.note {
+    font-size: 1.2rem; }
+.fabSpeedDialdemoBasicUsage .lock-size {
+    min-width: 300px;
+    min-height: 300px;
+    width: 300px;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto; }
+
+

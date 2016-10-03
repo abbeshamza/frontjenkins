@@ -1,0 +1,11 @@
+
+<md-content>
+    <md-card ng-repeat="page in selectedProject.allFiles  | filter:{type:{label: 'Page'} } ">
+        <md-card-content>
+            <h5>Page name : {{page.name}}</h5>
+            <p>{{page.info}}</p>
+        </md-card-content>
+        <md-card-action layout="row" layout-align="end center">
+        </md-card-action>
+    </md-card>
+</md-content>

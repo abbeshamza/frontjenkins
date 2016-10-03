@@ -1,0 +1,18 @@
+<div ng-controller="project.deleteProjectPopup">
+<md-dialog>
+        <md-dialog-content>
+            <div layout="column" layout-padding>
+                <div layout-gt-sm="row">
+                   You are deleting the project {{projectToDelete}}
+                </div>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+
+            <md-button  class="md-raised md-warn md-cornered"
+                       ng-click="project.deleteProject()">
+                Delete
+            </md-button>
+        </md-dialog-actions>
+</md-dialog>
+   </div>

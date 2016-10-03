@@ -1,0 +1,39 @@
+<div flex >
+    <div  >
+<md-sidenav class="md-sidenav-left md-whiteframe-z2"
+            md-component-id="left"
+            md-is-locked-open="$mdMedia('lg')">
+    <md-toolbar>
+        <h1>Menu</h1>
+    </md-toolbar>
+    <md-content >
+        <md-list>
+            <md-list-item>
+                <h6>Selected Project </h6>
+            <md-input-container class="md-block">
+                <md-select ng-model="projectToSelect" name="myModel"  aria-label="Select project" ng-init="" ng-change="menuCtr.changeProject(projectToSelect)"required>
+                    <md-option  ng-value="project" ng-repeat="project in menuCtr.setting"  ng-selected="project.value == menuCtr.projectDefaultSelect">{{project.label}}</md-option>
+                </md-select>
+            </md-input-container>
+              </md-list-item>
+            <md-list-item>
+                <h6>Selected Build </h6>
+                <md-input-container class="md-block">
+                    <md-select name="myModel2" aria-label="Select build"  ng-model="buildToSelect"  ng-change="menuCtr.changeBuild(buildToSelect)" required>
+                        <md-option  ng-value="build" ng-repeat="build in projectToSelect.builds"  ng-selected="build.value == menuCtr.buildDefaultSelect">{{build.label}}</md-option>
+                    </md-select>
+                </md-input-container>
+            </md-list-item>
+        </md-list>
+        <md-divider><div flex="10"></div> </md-divider>
+        <md-list>
+            <md-button><md-list-item> <a ui-sref="project.home"> <md-icon md-svg-icon="home" aria-label="home "></md-icon> Home</a></md-list-item></md-button>
+            <md-button><md-list-item> <a ui-sref="project.new_step1"><md-icon md-svg-icon="add-circle" aria-label="new"></md-icon> Create new project </a></md-list-item></md-button>
+            <md-button> <md-list-item> <a ui-sref="project.new_build"><md-icon md-svg-icon="add-circle" aria-label="new"></md-icon>Create new Build</a></md-list-item></md-button>
+            <md-button> <md-list-item> <a ui-sref="project.newTestCompany"><md-icon md-svg-icon="add-playlist" aria-label="new"></md-icon>Create new Test company</a></md-list-item></md-button>
+            <md-button><md-list-item><a ui-sref="project.show_companies"><md-icon md-svg-icon="playlist" aria-label="list of companies"></md-icon>Show Test Companies</a></md-list-item></md-button>
+        </md-list>
+    </md-content>
+</md-sidenav>
+</div>
+</div>

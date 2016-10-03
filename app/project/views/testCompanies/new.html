@@ -1,0 +1,57 @@
+<div ng-controller="company.addTestCompany">
+    <div flex="100" layout="row" >
+        <div flex="30" ng-controller="project:menuController as menuCtr" ng-include ="'app/project/views/side_menu.html'" ></div>
+        <md-divider><div flex="10"></div> </md-divider>
+        <div class="layout-column" flex = "100">
+            <div ng-include ="'Ressources/views/nav_bar.html'" ></div>
+            <div flex> <p><h2>Create a new test company </h2></p> </div><br>
+            <div id='loading-bar-container' ng-show= "loadingSpinner == true">
+
+            </div>
+
+            <div  ng-show= "loadingSpinner == false" flex-auto layout="column" layout-padding >
+                <md-content layout="column" flex="100">
+                    <form name="companyForm" ng-model="companyForm"ng-submit="company.saveCompany(newCompany)">
+                        <input type="hidden" name="project" value="">
+                        <md-input-container class="md-block" flex-gt-sm >
+                            <label>Name test company </label>
+                            <input ng-model="newCompany.name" name="name" required  ng-minlength="3"
+                                   ng-maxlength="20">
+                            <div ng-messages="companyForm.name.$error" ng-if="companyForm.$submitted || companyForm.name.$touched" multiple role="alert">
+                                <div ng-message="required">This is rquired</div>
+                                <div ng-message="minlength">That's too short!</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <h3>Select test cases that will be affected to this test company :</h3>
+                         </md-input-container>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <input type="text" placeholder="search test booklet" ng-model="bookletSearch" />
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-sm >
+                                    <div ng-model="company.stuff" layout-align="end center">
+                                        <div ivh-treeview="company.stuff" ivh-treeview-filter="bookletSearch">
+                                            <script type="text/ng-template">
+                                                <span ivh-treeview-toggle>
+                                                          <span ivh-treeview-twistie></span>
+                                                </span>
+                                                <md-box></md-box>
+                                                <span class="ivh-treeview-node-label" ivh-treeview-toggle>
+                                                        {{trvw.label(node)}}
+                                                  </span>
+                                                 <div ivh-treeview-children></div>
+                                             </script>
+                                         </div>
+                                    </div>
+                        </md-input-container>
+                        <div  layout-align="end center">
+                            <md-button class="md-primary md-raised" type="submit"  ng-disabled="companyForm.$invalid">
+                                Create
+                            </md-button>
+                        </div>
+                    </form>
+                </md-content>
+            </div>
+        </div>
+    </div>
+</div>

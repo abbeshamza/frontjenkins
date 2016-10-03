@@ -1,0 +1,33 @@
+<div flex="100" layout="row" ng-controller="build.addTestCompany">
+    <div flex="30" ng-controller="project:menuController as menuCtr" ng-include ="'app/project/views/side_menu.html'" ></div>
+    <md-divider><div flex="5"></div> </md-divider>
+    <div class="layout-column" flex = "100">
+        <div ng-include ="'Ressources/views/nav_bar.html'" ></div>
+        <md-content >
+
+            <fieldset class="demo-fieldset" >
+                <legend class="demo-legend">Check Test Companies that will be affected to this Build : </legend>
+                <div layout="row" layout-wrap flex id='loading-bar-container'>
+                    <div flex-xs flex="50">
+                        <md-checkbox aria-label="Select All"
+                                     ng-checked="isChecked()"
+                                     md-indeterminate="isIndeterminate()"
+                                     ng-click="toggleAll()">
+                            <span ng-if="isChecked()">Un-</span>Select All
+                        </md-checkbox>
+                    </div>
+                    <div class="demo-select-all-checkboxes" flex="100" ng-repeat="item in items">
+                        <md-checkbox ng-checked="exists(item.idtestCompany, selected)" ng-click="toggle(item.idtestCompany, selected)">
+                            {{ item.name }}
+                        </md-checkbox>
+                    </div>
+                </div>
+                <md-button class="md-raised md-primary md-cornered"  ng-click="build.saveTestCompany()">Add</md-button>
+            </fieldset>
+
+            <div layout="column"  layout-align="end center">
+                <dir-pagination-controls > </dir-pagination-controls>
+            </div>
+        </md-content>
+    </div>
+</div>

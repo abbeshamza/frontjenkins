@@ -1,0 +1,11 @@
+
+<md-content>
+    <md-card ng-repeat="controller in selectedProject.allFiles  | filter:{type:{label: 'Controller'} } ">
+        <md-card-content>
+            <h5>Controller name : {{controller.name}}</h5>
+            <p>{{controller.info}}</p>
+        </md-card-content>
+        <md-card-action layout="row" layout-align="end center">
+        </md-card-action>
+    </md-card>
+</md-content>

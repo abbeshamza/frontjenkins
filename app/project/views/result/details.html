@@ -1,0 +1,81 @@
+<div flex="100" layout="row" ng-controller="result.getResultById">
+    <div flex="30" ng-controller="project:menuController as menuCtr" ng-include ="'app/project/views/side_menu.html'" ></div>
+    <md-divider><div flex="5"></div> </md-divider>
+    <div class="layout-column" flex = "100">
+        <div ng-include ="'Ressources/views/nav_bar.html'" ></div>
+        <md-content layout="column">
+
+            <h3>Results of {{results.testCompany.name}} with {{results.build.name}} ({{results.date| date}} ) : {{results.time}} sec</h3>
+            <br><br>
+            <div id='loading-bar-container' ng-show= "loadingSpinner == true">
+
+            </div>
+
+
+            <h3>Results of testCompany's test cases </h3>
+            <div  ng-show= "loadingSpinner == false">
+                <md-tabs
+                        md-stretch-tabs="always"
+                        md-dynamic-height="">
+                    <md-tab label="Success">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th>Test Case</th>
+
+                                <th>Time</th>
+                                <th>Assertion</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="test in testSuccess">
+                                <td>{{test.testCase.name}}</td>
+                                <td>{{test.time}} sec</td>
+                                <td>{{test.assertion}}</td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </md-tab>
+                    <md-tab label="Failed">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th>Test Cese</th>
+                                <th>Time</th>
+                                <th>Assertion</th>
+                                <th>Failed feature</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="test in testFailed">
+                                <td>{{test.testCase.name}}</td>
+                                <td>{{test.time}} sec</td>
+                                <td>{{test.assertion}}</td>
+                                <td>{{test.feature}}</td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </md-tab>
+                </md-tabs>
+
+            </div>
+            <br><br><br><br>
+            <md-divider></md-divider>
+            <div>
+                <div class="hc-pie" items="limitedIdeas"></div>
+            </div>
+            <md-divider></md-divider>
+            <h3>Results of testCompany's features </h3>
+            <div>
+                <div ac-chart="'bar'" ac-data="data" ac-config="config" id='chart' class='chart'></div>
+            </div>
+
+            <div layout="column"  layout-align="end center">
+
+                <dir-pagination-controls > </dir-pagination-controls>
+            </div>
+        </md-content>
+    </div>
+</div>

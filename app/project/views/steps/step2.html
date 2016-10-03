@@ -1,0 +1,38 @@
+
+
+<div flex="100" layout="row"  >
+    <div flex="30" ng-controller="project:menuController as menuCtr" ng-include ="'app/project/views/side_menu.html'" ></div>
+    <md-divider><div flex="10"></div> </md-divider>
+    <div class="layout-column" flex = "100">
+
+        <div ng-include ="'Ressources/views/nav_bar.html'" ></div>
+        <div flex><h1>Step 2 : Generated configuration of the project from The Zip File :</h1> </div>
+        <div id='loading-bar-container' ng-show= "loadingSpinner == true">
+
+        </div>
+
+        <div  ng-show= "loadingSpinner == false" flex-auto layout="column" layout-padding>
+            <md-tabs md-stretch-tabs="always"
+                     md-dynamic-height="">
+                <md-tab label="Controllers">
+                    <div ng-include="'app/project/views/partial/controllers.html'"></div>
+                </md-tab>
+                <md-tab label="Pages">
+                    <div ng-include="'app/project/views/partial/pages.html'"></div>
+                </md-tab>
+                <md-tab label="Test Booklets">
+                    <div ng-include="'app/project/views/partial/testBooklet.html'"></div>
+                </md-tab>
+
+            </md-tabs>
+
+            <md-content flex>
+
+                <md-button class="md-primary md-raised" ng-click="project.goToStep3()">
+                    next
+                </md-button>
+
+            </md-content>
+        </>
+    </div>
+</div>

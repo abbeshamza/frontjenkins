@@ -1,0 +1,92 @@
+
+<div flex="100" layout="row"  ng-controller="project.selectProject" >
+    <div flex="30" ng-controller="project:menuController as menuCtr" ng-include ="'app/project/views/side_menu.html'" ></div>
+    <md-divider><div flex="5"></div> </md-divider>
+    <div class="layout-column" flex = "100">
+        <div ng-include ="'Ressources/views/nav_bar.html'" ></div>
+        <md-content >
+            <div layout="row">
+                <div flex="20"><h3>Project {{projectSelected.name}} Details </h3></div>
+                <div layout="row" flex="80" layout-align="end right">
+                    <div class="col-xs-4">
+                        <label for="search">Search:</label>
+                        <input ng-model="q" id="search" class="form-control" placeholder="Filter text">
+                    </div>
+                    <div class="col-xs-4">
+                        <label for="search">builds per page:</label>
+                        <input type="number" min="1" max="100" class="form-control" ng-model="pageSize">
+                    </div>
+                </div>
+            </div>
+            <br>
+            <md-divider></md-divider>
+
+            <div id='loading-bar-container' ng-show= "loadingSpinner == true">
+
+            </div>
+
+            <div  ng-show= "loadingSpinner == false">
+<p>Click here to display all project Details <input type="checkbox" ng-model="isClicked"></p>
+
+               <div ng-show="isClicked">
+                   <md-divider></md-divider>
+                <md-tabs
+
+                        md-stretch-tabs="always"
+                        md-dynamic-height="">
+                    <md-tab label="Controllers">
+                        <div ng-include="'app/project/views/partial/controllers.html'"></div>
+                    </md-tab>
+                    <md-tab label="Pages">
+                        <div ng-include="'app/project/views/partial/pages.html'"></div>
+                    </md-tab>
+                    <md-tab label="Test Booklets">
+                        <div ng-include="'app/project/views/partial/testBooklet.html'"></div>
+                    </md-tab>
+
+                </md-tabs>
+                   <md-divider></md-divider>
+               </div>
+
+
+
+
+                <h1>List of Builds :</h1>
+
+
+                <md-list flex ng-if=" projectSelected.allBuilds.length > 0">
+                    <md-list-item
+                            dir-paginate="build in selectedProject.allBuilds | filter:q | itemsPerPage: pageSize"
+                            aria-label="">
+                        <md-card flex>
+                            <md-card-content>
+                                <table class="table">
+                                    <thead>
+                                    <tr flex> <td ><h4>Name </h4></td><td>  <h4>Date</h4></td> <td>  <h4>Description</h4></td></tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr flex> <td>{{build.name}}</td><td>{{build.date |date }}</td><td>{{build.description}}</td></tr>
+                                    </tbody>
+                                </table>
+                            </md-card-content>
+                            <md-card-actions layout="row" layout-align="end center">
+                                <md-button class="md-raised md-primary md-cornered" ng-click="project.selectBuild(build.idbuild)">Select</md-button>
+                                <md-button class="md-raised md-primary md-cornered" ng-click="project.addTestCompanyToBuild(build.idbuild)">Add Test Company</md-button>
+                                <md-button class="md-raised md-warn md-cornered" ng-click="project.deleteBuild(build)">Remove</md-button>
+                            </md-card-actions>
+                        </md-card>
+                    </md-list-item>
+
+                </md-list>
+                <md-card ng-if="projectSelected.allBuilds .length == 0">
+                    <md-card-content>
+                        <h1> There is no build !</h1>
+                    </md-card-content>
+                </md-card>
+            </div>
+            <div layout="column"  layout-align="end center">
+                <dir-pagination-controls > </dir-pagination-controls>
+            </div>
+        </md-content>
+    </div>
+</div>

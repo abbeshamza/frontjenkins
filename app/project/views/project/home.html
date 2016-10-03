@@ -1,0 +1,67 @@
+<div flex="100" layout="row"  >
+    <div flex="30" ng-controller="project:menuController as menuCtr" ng-include ="'app/project/views/side_menu.html'" ></div>
+    <md-divider><div flex="10"></div> </md-divider>
+    <div class="layout-column" flex = "100">
+        <div  ng-include ="'Ressources/views/nav_bar.html'" ></div>
+        <md-content flex  ng-controller="project.listProject">
+            <div layout="row" >
+               <div flex="20"><h3>List of Projects </h3></div>
+                <div flex="80" layout="row"  layout-align="end right">
+                    <div class="col-xs-4">
+                        <label for="search">Search:</label>
+                        <input ng-model="q" id="search" class="form-control" placeholder="Filter text">
+                    </div>
+                    <div class="col-xs-4">
+                        <label for="search">items per page:</label>
+                        <input type="number" min="1" max="100" class="form-control" ng-model="pageSize">
+                    </div>
+                </div>
+            </div>
+            <br>
+            <md-divider></md-divider>
+            <div id='loading-bar-container' ng-show= "loadingSpinner == true">
+
+            </div>
+
+            <div  ng-show= "loadingSpinner == false">
+                <md-list flex ng-if=" listProjects != null">
+                    <md-list-item
+                            dir-paginate="item in listProjects | filter:q | itemsPerPage: pageSize track by -item.idproject"
+                            aria-label="">
+                        <md-card flex>
+                            <md-card-content>
+                                <md-card-content>
+                                    <table class="table">
+                                        <thead>
+                                        <tr flex> <td ><h4>Name </h4></td><td>  <h4>URL</h4></td> <td>  <h4>Status</h4></td></tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr flex> <td>{{item.name}}</td><td>{{item.url}}</td><td>{{item.status}}</td></tr>
+                                        </tbody>
+                                    </table>
+                                </md-card-content>
+                            </md-card-content>
+                            <md-card-actions layout="row" layout-align="end center">
+
+
+                                <md-button class="md-raised md-primary md-cornered" ng-click="project.goToProject(item.idproject)">Select</md-button></a>
+                                <md-button class="md-raised md-primary md-cornered" ng-click="project.goToUpdate(item.idproject)">Update</md-button>
+                                <md-button class="md-raised md-primary md-cornered" ng-click="project.changeName(item)">Change name</md-button>
+                                <md-button class="md-raised md-primary md-cornered" ng-click="project.closeProject(item.idproject)">Close/Open</md-button>
+                                <md-button class="md-raised md-warn md-cornered"  ng-click="project.showDeleteProjectConfirmation(item)">Remove</md-button>
+                            </md-card-actions>
+                        </md-card>
+                    </md-list-item>
+                </md-list>
+                <md-card ng-if="listProjects == null">
+                    <md-card-content>
+                        <h1> There is no project !</h1>
+                    </md-card-content>
+                </md-card>
+            </div>
+            <div layout="column"  layout-align="end center">
+                <dir-pagination-controls > </dir-pagination-controls>
+            </div>
+        </md-content>
+    </div>
+</div>
